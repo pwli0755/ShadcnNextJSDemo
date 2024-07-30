@@ -29,6 +29,7 @@ import {
 import { toast } from "@/components/ui/use-toast";
 import Link from "next/link";
 import PasswordInput from "@/components/password-input";
+import { useRouter } from "next/navigation";
 
 const FormSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -38,6 +39,7 @@ const FormSchema = z.object({
 });
 
 const LoginPage = () => {
+  const router = useRouter()
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -55,6 +57,8 @@ const LoginPage = () => {
         </pre>
       ),
     });
+    router.push("/dashboard")
+    
   }
 
   return (

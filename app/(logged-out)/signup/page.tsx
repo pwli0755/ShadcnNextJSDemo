@@ -340,7 +340,8 @@ const SignUpPage = () => {
         <CardFooter className="flex items-center justify-between">
           <span className="text-sm">Already have an account?</span>
           <Button variant="outline" className="uppercase">
-            Login
+            <Link href={"/login"}>Login</Link>
+            
           </Button>
         </CardFooter>
       </Card>

@@ -339,161 +339,159 @@ const OaApiPage = () => {
 
   return (
     <>
-      <NoSSR>
-        <h2 className="mb-4">对外网关OA接口通用表单</h2>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="w-2/3 space-y-6"
-          >
-            <FormField
-              control={form.control}
-              name="host"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>域名</FormLabel>
-                  <FormControl>
-                    <Input placeholder="请输入对外网关域名" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
+      <h2 className="mb-4">对外网关OA接口通用表单</h2>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="w-2/3 space-y-6"
+        >
+          <FormField
+            control={form.control}
+            name="host"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>域名</FormLabel>
+                <FormControl>
+                  <Input placeholder="请输入对外网关域名" {...field} />
+                </FormControl>
+                {/* <FormDescription>
                 This is your public display name.
               </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="path"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>接口地址</FormLabel>
-                  <FormControl>
-                    <Input placeholder="请输入" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="path"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>接口地址</FormLabel>
+                <FormControl>
+                  <Input placeholder="请输入" {...field} />
+                </FormControl>
+                {/* <FormDescription>
                 This is your public display name.
               </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="app_id"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>应用id</FormLabel>
-                  <FormControl>
-                    <Input placeholder="请输入" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="app_id"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>应用id</FormLabel>
+                <FormControl>
+                  <Input placeholder="请输入" {...field} />
+                </FormControl>
+                {/* <FormDescription>
                 This is your public display name.
               </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="app_key"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>应用key</FormLabel>
-                  <FormControl>
-                    <Input placeholder="请输入" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="app_key"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>应用key</FormLabel>
+                <FormControl>
+                  <Input placeholder="请输入" {...field} />
+                </FormControl>
+                {/* <FormDescription>
                 This is your public display name.
               </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="app_secret"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>应用私钥</FormLabel>
-                  <FormControl>
-                    <Input placeholder="请输入" {...field} />
-                  </FormControl>
-                  {/* <FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="app_secret"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>应用私钥</FormLabel>
+                <FormControl>
+                  <Input placeholder="请输入" {...field} />
+                </FormControl>
+                {/* <FormDescription>
                 This is your public display name.
               </FormDescription> */}
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-      
-            <FormField
-              control={form.control}
-              name="data"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>请求参数</FormLabel>
-                  <FormControl>
-                    {/* <Textarea
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="data"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>请求参数</FormLabel>
+                <FormControl>
+                  {/* <Textarea
                     placeholder="请输入"
                     {...field}
                     ref={textareaRef}
                     className="overflow-hidden resize-none"
                   /> */}
-                    {/* <CodeEditor */}
-                    <Textarea
-                      data-color-mode={theme === "light" ? "light" : "dark"}
-                      {...field}
-                      onChange={(e) => {
-                        var val = e.target.value;
-                        if (e.target.value) {
-                          try {
-                            val = JSON.stringify(
-                              JSON.parse(e.target.value),
-                              null,
-                              2
-                            );
-                          } catch (err) {
-                            val = e.target.value;
-                          }
+                  {/* <CodeEditor */}
+                  <Textarea
+                    data-color-mode={theme === "light" ? "light" : "dark"}
+                    {...field}
+                    onChange={(e) => {
+                      var val = e.target.value;
+                      if (e.target.value) {
+                        try {
+                          val = JSON.stringify(
+                            JSON.parse(e.target.value),
+                            null,
+                            2
+                          );
+                        } catch (err) {
+                          val = e.target.value;
                         }
-                        e.target.value = val;
-                        field.onChange(e);
-                      }}
-                      value={(function (val: string): string {
-                        var tmp: string = val;
-                        if (val) {
-                          try {
-                            tmp = JSON.stringify(JSON.parse(val), null, 2);
-                          } catch (err) {
-                            tmp = val;
-                          }
+                      }
+                      e.target.value = val;
+                      field.onChange(e);
+                    }}
+                    value={(function (val: string): string {
+                      var tmp: string = val;
+                      if (val) {
+                        try {
+                          tmp = JSON.stringify(JSON.parse(val), null, 2);
+                        } catch (err) {
+                          tmp = val;
                         }
-                        return tmp;
-                      })(field.value)}
-                      ref={textareaRef}
-                      // language="json"
-                      // padding={15}
-                      placeholder="Please enter JSON string."
-                      // rehypePlugins={[[rehypePrism, { ignoreMissing: true }]]}
-                      className="overflow-hidden resize-none"
-                      style={{
-                        fontFamily:
-                          "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
-                      }}
-                    />
-                  </FormControl>
-                  <FormDescription>
-                    JSON字符串形式的请求参数（无需加密）
-                  </FormDescription>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit">Submit</Button>
-          </form>
-        </Form>
-      </NoSSR>
+                      }
+                      return tmp;
+                    })(field.value)}
+                    ref={textareaRef}
+                    // language="json"
+                    // padding={15}
+                    placeholder="Please enter JSON string."
+                    // rehypePlugins={[[rehypePrism, { ignoreMissing: true }]]}
+                    className="overflow-hidden resize-none"
+                    style={{
+                      fontFamily:
+                        "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
+                    }}
+                  />
+                </FormControl>
+                <FormDescription>
+                  JSON字符串形式的请求参数（无需加密）
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">Submit</Button>
+        </form>
+      </Form>
     </>
   );
 };

@@ -63,16 +63,16 @@ const OaApiLayout = ({ children }: { children: React.ReactNode }) => {
               <NavigationMenuTrigger>OA接口</NavigationMenuTrigger>
               <NavigationMenuContent >
                 <Link href="/oa-api/gen-certificates">
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()} >
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                     OA批量生成许可证
                   </NavigationMenuLink>
                 </Link>
-                <Link href="/oa-api">
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(),"w-full justify-start")}>
-                    OA通用
-                  </NavigationMenuLink>
-                </Link>
-               
+
+                <NavigationMenuLink
+                  className={cn(navigationMenuTriggerStyle(), "w-full justify-start")}
+                >
+                  <Link href="/oa-api">OA通用</Link>
+                </NavigationMenuLink>
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
