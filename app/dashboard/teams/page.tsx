@@ -1,9 +1,8 @@
-import React from 'react'
+import { Skeleton } from "@/components/ui/skeleton";
+import React from "react";
 
 const TeamsPage = () => {
-  return (
-    <div>TeamsPage</div>
-  )
-}
+  return <>Teams</>;
+};
 
-export default TeamsPage
+export default TeamsPage;

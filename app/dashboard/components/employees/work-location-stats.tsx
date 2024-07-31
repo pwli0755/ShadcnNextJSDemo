@@ -89,7 +89,7 @@ const WorkLocationStats = () => {
             }
           }}
           labelClassName="font-bold"
-          wrapperClassName="!text-sm dark:!bg-black rounded-md dark:!bor"
+          wrapperClassName="!text-sm dark:!bg-black rounded-md dark:!border-border"
         />
         <Legend
           iconType="circle"
@@ -101,7 +101,7 @@ const WorkLocationStats = () => {
             }
           }}
         />
-        <Bar dataKey="office" stackId={1} fill="hsl(var(--primary))" />
+        <Bar dataKey="office" stackId={1} fill="#ec4899" />
         <Bar dataKey="wfh" stackId={1} fill="#6b7280" radius={[4, 4, 0, 0]} />
       </BarChart>
     </ResponsiveContainer>
