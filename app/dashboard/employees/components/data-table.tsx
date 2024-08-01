@@ -50,6 +50,9 @@ export function DataTable<TData, TValue>({
       rowSelection,
       columnFilters,
     },
+    // globalFilterFn:(row, _, filterValue) => {
+    //   return  Object.values(row.original).filter(v=>v.toString().includes(filterValue)).length > 0
+    // },
     enableRowSelection: true,
     onRowSelectionChange: setRowSelection,
     onSortingChange: setSorting,
@@ -66,14 +69,14 @@ export function DataTable<TData, TValue>({
   return (
     <div className="flex flex-col gap-6 mt-6">
       <DataTableToolbar table={table} />
-      <div className="rounded-md ">
+      <div className="rounded-md">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead key={header.id} colSpan={header.colSpan}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(

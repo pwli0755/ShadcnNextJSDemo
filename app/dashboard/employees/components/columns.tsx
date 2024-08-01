@@ -9,19 +9,23 @@ import { DataTableColumnHeader } from "./data-table-column-header";
 import { title } from "process";
 import { Span } from "next/dist/trace";
 import { DataTableRowActions } from "./data-table-actions";
+import { BirdIcon, CupSoda, Cat } from "lucide-react";
 
 export const teams = [
   {
     label: "Alpha",
     value: "alpha",
+    icon: Cat,
   },
   {
     label: "Delta",
     value: "delta",
+    icon: CupSoda,
   },
   {
     label: "Canary",
     value: "canary",
+    icon: BirdIcon,
   },
 ];
 
@@ -110,6 +114,7 @@ export const columns: ColumnDef<Employee>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Team" />
     ),
+    enableGlobalFilter: false,
   },
   {
     accessorKey: "isTeamLeader",
@@ -120,6 +125,7 @@ export const columns: ColumnDef<Employee>[] = [
         <Badge variant={"success"}> Team leader</Badge>
       ) : null;
     },
+    enableGlobalFilter: false,
   },
   {
     id: "actions",

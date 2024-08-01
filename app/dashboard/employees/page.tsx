@@ -74,6 +74,28 @@ const employees: Employee[] = [
     team: "delta",
     isTeamLeader: false,
   },
+  {
+    id: 10,
+    firstname: "Amy",
+    lastname: "Adams",
+    team: "delta",
+    isTeamLeader: true,
+  },
+  {
+    id: 11,
+    firstname: "Ryan",
+    lastname: "Lopez",
+    team: "delta",
+    isTeamLeader: false,
+    avatar: "/images/rl.jpg",
+  },
+  {
+    id: 12,
+    firstname: "Jenny",
+    lastname: "Jones",
+    team: "delta",
+    isTeamLeader: false,
+  },
 ];
 
 const EmployeesPage = async () => {

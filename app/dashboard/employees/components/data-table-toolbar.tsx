@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Cross2Icon } from "@radix-ui/react-icons";
 import { DataTableViewOptions } from "./data-table-view-options";
 import { teams } from "./columns";
+import { useState } from "react";
 
 interface DataTableToolbarProps<TData> {
   table: Table<TData>;
@@ -14,16 +15,18 @@ export function DataTableToolbar<TData>({
   table,
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0;
+  const [nameSearchKey, setNameSearchKey] = useState<string>("");
 
   return (
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-4">
         <Input
-          placeholder="Filter tasks..."
-          value={(table.getColumn("firstname")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("firstname")?.setFilterValue(event.target.value)
-          }
+          placeholder="Filter names..."
+          value={nameSearchKey}
+          onChange={(event) => {
+            setNameSearchKey(event.target.value);
+            table.setGlobalFilter(() => event.target.value);
+          }}
           className="h-8 w-[150px] lg:w-[250px]"
         />
         {table.getColumn("team") && (
