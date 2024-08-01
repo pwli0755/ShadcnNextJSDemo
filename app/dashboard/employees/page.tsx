@@ -1,79 +1,93 @@
 import React from "react";
 import Loading from "./loading";
 import { setTimeout } from "timers/promises";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Employee, columns } from "./components/columns";
+import { DataTable } from "./components/data-table";
+
+
 
 const employees: Employee[] = [
   {
     id: 1,
-    firstName: "Colin",
-    lastName: "Murray",
-    teamName: "alpha",
+    firstname: "Colin",
+    lastname: "Murray",
+    team: "alpha",
     isTeamLeader: true,
     avatar: "/images/cm.jpg",
   },
   {
     id: 2,
-    firstName: "Tom",
-    lastName: "Phillips",
-    teamName: "alpha",
+    firstname: "Tom",
+    lastname: "Phillips",
+    team: "alpha",
     isTeamLeader: false,
   },
   {
     id: 3,
-    firstName: "Liam",
-    lastName: "Fuentes",
-    teamName: "alpha",
+    firstname: "Liam",
+    lastname: "Fuentes",
+    team: "alpha",
     isTeamLeader: false,
   },
   {
     id: 4,
-    firstName: "Tina",
-    lastName: "Fey",
-    teamName: "canary",
+    firstname: "Tina",
+    lastname: "Fey",
+    team: "canary",
     isTeamLeader: true,
     avatar: "/images/tf.jpg",
   },
   {
     id: 5,
-    firstName: "Katie",
-    lastName: "Johnson",
-    teamName: "canary",
+    firstname: "Katie",
+    lastname: "Johnson",
+    team: "canary",
     isTeamLeader: false,
   },
   {
     id: 6,
-    firstName: "Tina",
-    lastName: "Jones",
-    teamName: "canary",
+    firstname: "Tina",
+    lastname: "Jones",
+    team: "canary",
     isTeamLeader: false,
   },
   {
     id: 7,
-    firstName: "Amy",
-    lastName: "Adams",
-    teamName: "delta",
+    firstname: "Amy",
+    lastname: "Adams",
+    team: "delta",
     isTeamLeader: true,
   },
   {
     id: 8,
-    firstName: "Ryan",
-    lastName: "Lopez",
-    teamName: "delta",
+    firstname: "Ryan",
+    lastname: "Lopez",
+    team: "delta",
     isTeamLeader: false,
     avatar: "/images/rl.jpg",
   },
   {
     id: 9,
-    firstName: "Jenny",
-    lastName: "Jones",
-    teamName: "delta",
+    firstname: "Jenny",
+    lastname: "Jones",
+    team: "delta",
     isTeamLeader: false,
   },
 ];
 
 const EmployeesPage = async () => {
   await setTimeout(2000);
-  return <div></div>;
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Employees</CardTitle>
+        <CardContent>
+          <DataTable columns={columns} data={employees} />
+        </CardContent>
+      </CardHeader>
+    </Card>
+  );
 };
 
 export default EmployeesPage;

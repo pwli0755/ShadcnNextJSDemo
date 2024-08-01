@@ -42,7 +42,7 @@ const TeamsStats = () => {
             <StarIcon className="text-yellow-400" />
           </CardTitle>
         </CardHeader>
-        <CardContent className="flex gap-2 ">
+        <CardContent className="flex gap-2 flex-wrap">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger>

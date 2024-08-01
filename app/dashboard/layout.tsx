@@ -18,6 +18,7 @@ type Props = {
 
 const DashBoardLayout = ({ children }: Props) => {
   const pathname = usePathname();
+
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
@@ -25,7 +26,7 @@ const DashBoardLayout = ({ children }: Props) => {
       <div className="md:grid md:grid-cols-[250px_1fr] h-screen">
         <MainMenu className="hidden md:flex" />
         {!isDesktop && (
-          <div className="p-4 flex justify-between md:hidden sticky top-0 left-0 bg-background border-b border-border">
+          <div className="p-4 flex justify-between  sticky top-0 left-0 bg-background border-b border-border">
             <Banner />
             <Drawer
               direction="right"
