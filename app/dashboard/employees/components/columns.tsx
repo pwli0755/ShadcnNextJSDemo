@@ -115,6 +115,9 @@ export const columns: ColumnDef<Employee>[] = [
       <DataTableColumnHeader column={column} title="Team" />
     ),
     enableGlobalFilter: false,
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id));
+    },
   },
   {
     accessorKey: "isTeamLeader",
