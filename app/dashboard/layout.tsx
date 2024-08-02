@@ -10,6 +10,7 @@ import { useState } from "react";
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import { MenuIcon, XIcon } from "lucide-react";
 import LayoutContent from "./lauout-content";
+import { ClientOnly } from "@/components/client-only";
 
 type Props = {
   children: React.ReactNode;
@@ -18,7 +19,9 @@ type Props = {
 const DashBoardLayout = ({ children }: Props) => {
   return (
     <>
-      <LayoutContent> {children}</LayoutContent>
+      <ClientOnly>
+        <LayoutContent> {children}</LayoutContent>
+      </ClientOnly>
     </>
   );
 };
