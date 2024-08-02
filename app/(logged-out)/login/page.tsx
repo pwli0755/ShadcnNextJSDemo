@@ -44,7 +44,7 @@ const LoginPage = () => {
     resolver: zodResolver(FormSchema),
     defaultValues: {
       email: "me@bytes.fun",
-      // password: "",
+      password: "11111111",
     },
   });
 
