@@ -18,7 +18,7 @@ type Props = {
 const DashBoardLayout = ({ children }: Props) => {
   return (
     <>
-      <LayoutContent children={children} />
+      <LayoutContent> {children}</LayoutContent>
     </>
   );
 };
